@@ -8,10 +8,21 @@ llm:
   temperature: 0.1     #The temperature of the model. Increasing the temperature will make the model answer more creatively. A value of 0.1 would be more factual. (Default: 0.1)
 
 embedding:
-  mode: ollama
+  mode: huggingface #ollama
+  ingest_mode: parallel
+  embed_dim: 1024
+
+huggingface:
+  # embedding_hf_model_name: dunzhang/stella_en_400M_v5
+  # embedding_hf_model_name: avsolatorio/GIST-Embedding-v0
+  # embedding_hf_model_name: WhereIsAI/UAE-Large-V1
+  # embedding_hf_model_name: mixedbread-ai/mxbai-embed-large-v1
+  # embedding_hf_model_name: intfloat/multilingual-e5-large-instruct
+  embedding_hf_model_name: avsolatorio/GIST-large-Embedding-v0
 
 ollama:
-  llm_model: llama3.1
+  # llm_model: mistral-nemo:12b-instruct-2407-q8_0
+  llm_model: llama3.2:3b-instruct-fp16
   embedding_model: nomic-embed-text
   api_base: http://localhost:11434
   embedding_api_base: http://localhost:11434  # change if your embedding model runs on another ollama
